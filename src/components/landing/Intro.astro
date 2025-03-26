@@ -1,0 +1,99 @@
+---
+// Images
+import { Image } from "astro:assets";
+import Avatar from "@/images/avatar.png";
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const links = [
+  {
+    label: "Email",
+    url: "",
+    text: "Alexvle.personal@protonmail.com",
+  },
+    {
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/alexander-l-9bb846306/",
+    text: "Profile Link",
+  },
+];
+---
+
+<section>
+  <Wrapper variant="base" class="lg:pt-24">
+    <div class="flex items-center space-x-4">
+      <Image
+        src={Avatar}
+        alt="avatar"
+        width="1000"
+        height="1000"
+        class="size-24 rounded-full object-cover ring ring-zinc-200 dark:ring-zinc-800"
+      />
+      <div>
+        <Text
+          tag="h1"
+          variant="textBase"
+          class="font-semibold text-zinc-900 dark:text-zinc-200"
+          >Alexander Le</Text
+        >
+        <Text
+          tag="p"
+          variant="textSM"
+          class="text-sm text-zinc-600 dark:text-zinc-400"
+          >Software Developer</Text
+        >
+        <div class="mt-2 flex">
+          <a
+            href="https://github.com/AlexV-L"
+            class="bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 dark:text-white text-xs h-6 items-center flex rounded-full px-3"
+            >Github Profile↗</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <Text
+        tag="h2"
+        variant="textSM"
+        class="font-medium text-zinc-900 dark:text-zinc-200">About</Text
+      >
+      <Text tag="p" variant="textSM" class="text-zinc-500 mt-4">
+        Software developer with skills in back-end engineering , cloud implementation, front-end design, and IOS app development; all skills tested and refined over 3 years of professional experience from the airline industry, banking, and telecommunications, I learned to code to professional standards, and am familiar with testing, agile, and the dev-ops pipeline.
+      </Text>
+    </div>
+
+    <div class="mt-12 lg:mt-24">
+      <Text
+        tag="h2"
+        variant="textSM"
+        class="font-semibold text-zinc-900 dark:text-zinc-200">Contact</Text
+      >
+      <div class="mt-8">
+        <ul class="lg:col-span-4">
+          {
+            links.map((link) => (
+              <li class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5">
+                <Text
+                  tag="span"
+                  variant="textSM"
+                  class=" font-medium text-zinc-900 dark:text-zinc-200"
+                >
+                  {link.label}
+                </Text>
+                <Text
+                  tag="a"
+                  variant="textSM"
+                  href={link.url}
+                  class=" text-zinc-500 hover:underline lg:col-span-4"
+                >
+                  {link.text}
+                </Text>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </Wrapper>
+</section>

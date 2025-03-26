@@ -1,0 +1,81 @@
+---
+// Fundations
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+// Data
+const work = [
+  {
+    period: "JAN 2025 –PRESET",
+    title: "T-Mobile (Contractor) - Sr. Software Developer",
+    description: `Development revolving around Azure Event Hubs for data streaming product catalog events for up-to-date pricing and offers. IOS MVC development on listening to these events and updating them for retail Ipads for customer trade-ins and sales.`,
+    location: "Frisco, TX",
+    link: "#_", // Placeholder link
+  },
+  {
+    period: "APR 2023 – SEP 2024",
+    title: "JP Morgan & Chase - Software Enginneer II",
+    description: `Implemented a pipeline to take legacy cobol data to be taken to the cloud, encrypted, and transformed into modern open data types then streamed into kafka events on the AWS cloud service.`,
+    location: "Frisco, TX",
+    link: "#_", // Placeholder link
+  },
+  {
+    period: "JUN 2022 – DEC 2022",
+    title: "American Airlines (Contractor) - Software Developer",
+    description: `Migrated database from mySQL to a Postgres database hosted on Azure Cloud. Handled data verification and the transfer of existing local APIs to connect to the new cloud database.`,
+    location: "Fort Worth, TX",
+    link: "#_", // Placeholder link
+  },
+];
+---
+
+<section>
+  <Wrapper variant="base" class="py-12">
+    <Text
+      tag="h3"
+      variant="textBase"
+      class="font-semibold text-zinc-900 dark:text-zinc-200"
+    >
+      Work
+    </Text>
+
+    <div class="flex flex-col gap-12 mt-8">
+      {
+        work.map((work, index) => (
+          <div class="grid grid-cols-1  gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {/* Period */}
+            <Text tag="span" variant="textSM" class="font-medium text-zinc-500">
+              {work.period}
+            </Text>
+
+            {/* Work Content */}
+            <div class="lg:col-span-4">
+              <a href={work.link}>
+                <Text
+                  tag="h4"
+                  variant="textBase"
+                  class="font-semibold text-zinc-900 dark:text-zinc-200  flex justify-between w-full"
+                >
+                  {work.title} ↗
+                </Text>
+              </a>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {work.description}
+              </Text>
+              <Text
+                tag="p"
+                variant="textSM"
+                class="text-zinc-600 dark:text-zinc-500  mt-2"
+              >
+                {work.location}
+              </Text>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Wrapper>
+</section>
